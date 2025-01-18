@@ -40,7 +40,7 @@ def lambda_handler():
         conn = psycopg2.connect(
             dbname='crop-health-db',
             user='master',
-            password='tO5YZSVTs52OVfrP5H92',
+            password=,
             host='crop-health-db.cv0iskeoocuw.eu-north-1.rds.amazonaws.com',
             port='5432'
         )
