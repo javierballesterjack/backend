@@ -1,7 +1,4 @@
 from chalice import Chalice
-import psycopg2
-from datetime import datetime
-import json
 from chalicelib.my_packages import insert_fields
 app = Chalice(app_name='crop-health-back')
 
