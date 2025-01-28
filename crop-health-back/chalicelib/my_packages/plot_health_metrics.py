@@ -2,6 +2,13 @@ import psycopg2
 from datetime import datetime
 from psycopg2.extras import RealDictCursor
 import json
+import os
+
+dbname = os.environ.get("DBNAME")
+user = os.environ.get("USER")
+password = os.environ.get("PASSWORD")
+host = os.environ.get("HOST")
+port = os.environ.get("PORT")
 
 def default_serializer(obj):
     """
@@ -19,14 +26,15 @@ def plot_health_metrics(event):
         field_id = data.get('field_id')
         username = data.get('username')
 
+        # Conectar a la base de datos PostgreSQL
         conn = psycopg2.connect(
-            dbname='crop-health-db',
-            user='master',
-            password='tO5YZSVTs52OVfrP5H92',
-            host='crop-health-db.cv0iskeoocuw.eu-north-1.rds.amazonaws.com',
-            port='5432'
-        ) 
-        
+            dbname=dbname,
+            user=user,
+            password=password,
+            host=host,
+            port=port
+        )
+
         if not username or not field_id:
             return {
                 "statusCode": 400,

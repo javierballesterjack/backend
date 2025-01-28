@@ -1,15 +1,16 @@
 {
   "version": "2.0",
-  "app_name": "crop-health-back",
+  "app_name": "crop-health-app",
   "stages": {
     "dev": {
       "api_gateway_stage": "api",
-      "autogen_policy": true,
-      "environment_variables": {},
-      "lambda_timeout": 60,
-      "lambda_memory_size": 128,
-      "tags": {},
-      "region": "eu-north-1"
+      "environment_variables": {
+        "DBNAME": "crop-health-db",
+        "USER": "master",
+        "PASSWORD": "tO5YZSVTs52OVfrP5H92",
+        "HOST": "crop-health-db.cv0iskeoocuw.eu-north-1.rds.amazonaws.com",
+        "PORT": "5432"
+      }
     }
   }
 }

@@ -1,6 +1,13 @@
 import psycopg2
 from datetime import datetime
 import json
+import os
+
+dbname = os.environ.get("DBNAME")
+user = os.environ.get("USER")
+password = os.environ.get("PASSWORD")
+host = os.environ.get("HOST")
+port = os.environ.get("PORT")
 
 def insert_fields(app_request):
     try:
@@ -23,14 +30,25 @@ def insert_fields(app_request):
                 })
             }
 
+       
+        # conn = psycopg2.connect(
+        #     dbname='crop-health-db',
+        #     user='master',
+        #     password='tO5YZSVTs52OVfrP5H92',
+        #     host='crop-health-db.cv0iskeoocuw.eu-north-1.rds.amazonaws.com',
+        #     port='5432'
+        # )
+
+
         # Conectar a la base de datos PostgreSQL
         conn = psycopg2.connect(
-            dbname='crop-health-db',
-            user='master',
-            password='tO5YZSVTs52OVfrP5H92',
-            host='crop-health-db.cv0iskeoocuw.eu-north-1.rds.amazonaws.com',
-            port='5432'
+            dbname=dbname,
+            user=user,
+            password=password,
+            host=host,
+            port=port
         )
+
         cursor = conn.cursor()
 
         # Asegurarse de que polygons es una lista y procesar cada uno
