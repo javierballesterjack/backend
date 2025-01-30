@@ -115,7 +115,7 @@ os.makedirs(LOCAL_DIRECTORY, exist_ok=True)
 conn = psycopg2.connect(
     dbname='crop-health-db',
     user='master',
-    password='yatusae',
+    password='tO5YZSVTs52OVfrP5H92',
     host='crop-health-db.cv0iskeoocuw.eu-north-1.rds.amazonaws.com',
     port='5432'
 )
